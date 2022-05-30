@@ -9,7 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -33,14 +35,11 @@ public class EtudiantController {
 		return new ResponseEntity<Etudiant>(etudiantRepository.save(etudiant),HttpStatus.CREATED);
 	}
 	
-	@PostMapping("/update")
-	public String updateEtudiant() {
-		Etudiant e = etudiantRepository.getReferenceById(1);
-		e.setNom("Tata");
-		e.setEmail("tata.titi@test.fr");
-		etudiantRepository.save(e);
+	@PutMapping("/update/{id}")
+	public String updateEtudiant(@RequestBody Etudiant etudiant, @PathVariable int id) {
+		Etudiant e1 = etudiantRepository.getReferenceById(id);
+		etudiantRepository.save(etudiant);
 		return "L'Etudiant a bien été modifié.";
-		
 	}
 	
 	@PostMapping("/delete")
