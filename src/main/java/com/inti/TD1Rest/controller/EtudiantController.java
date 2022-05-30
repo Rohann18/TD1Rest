@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -28,10 +29,8 @@ public class EtudiantController {
 	}
 	
 	@PostMapping("/enregistrer")
-	public String saveEtudiant() {
-		Etudiant e = new Etudiant("Toto", "Titi", "toto.titi@test.fr", "0102030405", 5);
-		etudiantRepository.save(e);
-		return "L'Etudiant a bien été enregistré.";
+	public ResponseEntity<Etudiant> saveEtudiant(@RequestBody Etudiant etudiant) {
+		return new ResponseEntity<Etudiant>(etudiantRepository.save(etudiant),HttpStatus.CREATED);
 	}
 	
 	@PostMapping("/update")
