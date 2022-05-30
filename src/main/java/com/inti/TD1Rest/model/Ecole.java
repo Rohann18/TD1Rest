@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,6 +27,7 @@ public class Ecole {
 	private String cp;
 	private String ville;
 	@OneToMany(cascade=CascadeType.ALL, targetEntity = Etudiant.class, mappedBy = "ecole")
+	@JsonIgnore
 	private List<Etudiant> listEtudiant = new ArrayList<Etudiant>();
 	@OneToMany(cascade=CascadeType.ALL, targetEntity = Professeur.class, mappedBy = "ecole")
 	private List<Professeur> listProfesseur = new ArrayList<Professeur>();
