@@ -30,6 +30,7 @@ public class Ecole {
 	@JsonIgnore
 	private List<Etudiant> listEtudiant = new ArrayList<Etudiant>();
 	@OneToMany(cascade=CascadeType.ALL, targetEntity = Professeur.class, mappedBy = "ecole")
+	@JsonIgnore
 	private List<Professeur> listProfesseur = new ArrayList<Professeur>();
 	public Ecole(@NonNull String nom, String adresse, String cp, String ville) {
 		super();
