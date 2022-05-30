@@ -6,6 +6,8 @@ import com.inti.TD1Rest.model.Etudiant;
 import com.inti.TD1Rest.repository.EtudiantRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,8 +23,8 @@ public class EtudiantController {
 	}
 	
 	@GetMapping("/etudiant")
-	public List<Etudiant> detAllEtudiants(){
-		return etudiantRepository.findAll();
+	public ResponseEntity<List<Etudiant>> getAllEtudiants(){
+		return new ResponseEntity<List<Etudiant>>(etudiantRepository.findAll(),HttpStatus.OK);
 	}
 	
 	@PostMapping("/enregistrer")

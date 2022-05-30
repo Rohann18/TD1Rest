@@ -24,9 +24,9 @@ public class Ecole {
 	private String adresse;
 	private String cp;
 	private String ville;
-	@OneToMany(cascade=CascadeType.ALL, targetEntity = Etudiant.class, mappedBy = "etudiant")
+	@OneToMany(cascade=CascadeType.ALL, targetEntity = Etudiant.class, mappedBy = "ecole")
 	private List<Etudiant> listEtudiant = new ArrayList<Etudiant>();
-	@OneToMany(cascade=CascadeType.ALL, targetEntity = Professeur.class, mappedBy = "professeur")
+	@OneToMany(cascade=CascadeType.ALL, targetEntity = Professeur.class, mappedBy = "ecole")
 	private List<Professeur> listProfesseur = new ArrayList<Professeur>();
 	public Ecole(@NonNull String nom, String adresse, String cp, String ville) {
 		super();
