@@ -63,4 +63,10 @@ public class EtudiantController {
 		etudiantRepository.deleteById(id);
 		return "Etudiant supprimé.";
 	}
+	
+	@GetMapping("/listStudentBySchool/{idEcole}")
+	public ResponseEntity<List<Etudiant>> listStudentBySchool(@PathVariable int idEcole) {
+		
+		return new ResponseEntity<List<Etudiant>>(etudiantRepository.findByIdEcole(idEcole),HttpStatus.OK);
+	}
 }

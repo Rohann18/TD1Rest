@@ -45,4 +45,9 @@ public class EcoleController {
 		ecoleRepository.deleteById(id);
 		return "Ecole supprimé.";
 	}
+	
+	@GetMapping("/schoolByEmail/{email}")
+	public Ecole getSchool(@PathVariable("email") String email) {
+		return ecoleRepository.findSchoolByEmail(email);
+	}
 }
