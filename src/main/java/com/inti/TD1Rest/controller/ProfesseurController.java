@@ -63,7 +63,7 @@ public class ProfesseurController {
 	public String updateEtudiantWitnSchool(@PathVariable int idEtudiant, @PathVariable int idProf) {
 		Etudiant etudiant = etudiantRepository.getReferenceById(idEtudiant);
 		Professeur prof = professeurRepository.getReferenceById(idProf);
-		List<Professeur> listProfesseurs = new ArrayList<Professeur>();
+		List<Professeur> listProfesseurs = etudiant.getListeProfesseur();
 		listProfesseurs.add(prof);
 		etudiant.setListeProfesseur(listProfesseurs);
 		etudiantRepository.save(etudiant);

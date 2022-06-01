@@ -60,4 +60,14 @@ public class EtudiantRepositoryTests {
 		// Then
 		assertThat(listeEtudiant).isNotEmpty();
 	}
+	
+	@Test
+	public void testGetStudentsByProfessor() {
+		// Given
+		
+		// When
+		List<Etudiant> listeEtudiant = etudiantRepository.findByVille();
+		// Then
+		assertThat(listeEtudiant).isNotEmpty();
+	}
 }

@@ -50,4 +50,9 @@ public class EcoleController {
 	public Ecole getSchool(@PathVariable("email") String email) {
 		return ecoleRepository.findSchoolByEmail(email);
 	}
+	
+	@GetMapping("/schoolByNomAndPrenom/{nom}/{prenom}")
+	public Ecole getSchoolByNomAndPrenom(@PathVariable("nom") String nom,@PathVariable("prenom") String prenom) {
+		return ecoleRepository.findSchoolByNomAndPrenom(nom, prenom);
+	}
 }
