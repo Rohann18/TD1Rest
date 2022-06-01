@@ -50,4 +50,14 @@ public class EtudiantControllerTests {
 			e.printStackTrace();
 		}
 	}
+	
+	@Test
+	public void testGetAllStudentsInLyon() {
+		try {
+			mockMvc.perform(get("/etudiantInLyon"))
+				.andExpect(status().isOk());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }
