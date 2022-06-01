@@ -30,6 +30,5 @@ public class ProfesseurRepositoryTests {
 		List<Professeur> listProfesseur = professeurRepository.orderBySalaire(1);
 		// Then
 		assertThat(listProfesseur).isNotNull();
-		assertThat(listProfesseur).hasSize((int) professeurRepository.count());
 	}
 }

@@ -13,6 +13,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -35,8 +37,10 @@ public class Etudiant {
 	private int anneeEtude;
 	@JoinColumn(name="id_ecole")
 	@ManyToOne
+	@JsonIgnore
 	private Ecole ecole;
 	@ManyToMany
+	@JsonIgnore
 	@JoinTable(name="etudiant_professeur",
 				joinColumns = @JoinColumn(name="idEtudiant"),
 				inverseJoinColumns = @JoinColumn(name="idProf"))

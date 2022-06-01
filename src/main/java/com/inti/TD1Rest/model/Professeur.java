@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,6 +27,7 @@ public class Professeur {
 	private double salaire;
 	@JoinColumn(name="id_ecole")
 	@ManyToOne
+	@JsonIgnore
 	private Ecole ecole;
 	@ManyToMany
 	@JoinTable(name="etudiant_professeur",
