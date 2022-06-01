@@ -74,4 +74,9 @@ public class EtudiantController {
 	public ResponseEntity<List<Etudiant>> getAllEtudiantsInLyon(){
 		return new ResponseEntity<List<Etudiant>>(etudiantRepository.findByVille(),HttpStatus.OK);
 	}
+	
+	@GetMapping("/etudiantByProf")
+	public ResponseEntity<List<Etudiant>> getAllEtudiantsByProf(@RequestParam("id") int id){
+		return new ResponseEntity<List<Etudiant>>(etudiantRepository.getByProfessor(id),HttpStatus.OK);
+	}
 }

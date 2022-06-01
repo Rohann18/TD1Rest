@@ -60,4 +60,14 @@ public class EtudiantControllerTests {
 			e.printStackTrace();
 		}
 	}
+	
+	@Test
+	public void testGetAllStudentsByProf() {
+		try {
+			mockMvc.perform(get("/etudiantByProf").param("id", "1"))
+				.andExpect(status().isOk());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }

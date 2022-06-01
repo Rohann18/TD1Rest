@@ -64,9 +64,9 @@ public class EtudiantRepositoryTests {
 	@Test
 	public void testGetStudentsByProfessor() {
 		// Given
-		
+		int idProf = 1;
 		// When
-		List<Etudiant> listeEtudiant = etudiantRepository.findByVille();
+		List<Etudiant> listeEtudiant = etudiantRepository.getByProfessor(idProf);
 		// Then
 		assertThat(listeEtudiant).isNotEmpty();
 	}
