@@ -52,11 +52,12 @@ public class ProfesseurController {
 	}
 	
 	@PutMapping("/updateEcoleProfesseur/{idProf}/{idEcole}")
-	public String updateEtudiantWitnSchool(@RequestBody Professeur professeur, @PathVariable int idProf, @PathVariable int idEcole) {
+	public String updateProfessorWitnSchool(@PathVariable int idProf, @PathVariable int idEcole) {
 		Ecole ecole = ecoleRepository.getReferenceById(idEcole);
+		Professeur professeur = professeurRepository.getReferenceById(idProf);
 		professeur.setEcole(ecole);
 		professeurRepository.save(professeur);
-		return "L'Etudiant a bien été modifié.";
+		return "Le Professeur a bien été modifié.";
 	}
 	
 	@PutMapping("/updateEtudiantProfesseur/{idEtudiant}/{idProf}")
@@ -75,5 +76,10 @@ public class ProfesseurController {
 	public String deleteProfesseur(@RequestParam("id") int id) {
 		professeurRepository.deleteById(id);
 		return "Professeur supprimé.";
+	}
+	
+	@GetMapping("/professorBySchool/{idEcole}")
+	public List<Professeur> getProfessorBySchool(@PathVariable int idEcole) {
+		return professeurRepository.orderBySalaire(idEcole);
 	}
 }

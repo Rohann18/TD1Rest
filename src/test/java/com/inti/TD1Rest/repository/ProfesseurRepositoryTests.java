@@ -1,4 +1,4 @@
-package com.inti.TD1Rest.repositry;
+package com.inti.TD1Rest.repository;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -27,7 +27,7 @@ public class ProfesseurRepositoryTests {
 		// Given
 		
 		// When
-		List<Professeur> listProfesseur = professeurRepository.orderBySalaire();
+		List<Professeur> listProfesseur = professeurRepository.orderBySalaire(1);
 		// Then
 		assertThat(listProfesseur).isNotNull();
 		assertThat(listProfesseur).hasSize((int) professeurRepository.count());

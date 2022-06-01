@@ -1,4 +1,4 @@
-package com.inti.TD1Rest.repositry;
+package com.inti.TD1Rest.repository;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
